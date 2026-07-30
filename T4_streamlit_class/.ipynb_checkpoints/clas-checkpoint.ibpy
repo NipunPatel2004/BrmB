@@ -1,0 +1,269 @@
+# ==========================================
+# HEART DISEASE PREDICTION
+# 3 MODEL COMPARISON
+# Logistic Regression
+# Decision Tree
+# Random Forest
+# ==========================================
+
+# Imports
+
+import pandas as pd
+import numpy as np
+import matplotlib as plt 
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    confusion_matrix,
+    classification_report
+)
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# ==========================================
+# Load Dataset
+# ==========================================
+
+df = pd.read_csv("heart_cleveland_upload.csv")
+
+print("Dataset Shape:")
+print(df.shape)
+
+print("\nFirst 5 Rows:")
+print(df.head())
+
+# ==========================================
+# Check Missing Values
+# ==========================================
+
+print("\nMissing Values:")
+print(df.isnull().sum())
+
+# ==========================================
+# Duplicate Records
+# ==========================================
+
+print("\nDuplicate Records:", df.duplicated().sum())
+
+# Remove duplicates if any
+
+df = df.drop_duplicates()
+
+# ==========================================
+# Features and Target
+# ==========================================
+
+X = df.drop("condition", axis=1)
+
+y = df["condition"]
+
+# ==========================================
+# Train Test Split
+# ==========================================
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.20,
+    random_state=42,
+    stratify=y
+)
+
+print("\nTraining Shape:", X_train.shape)
+print("Testing Shape :", X_test.shape)
+
+# ==========================================
+# Feature Scaling
+# Only for Logistic Regression
+# ==========================================
+
+scaler = StandardScaler()
+
+X_train_scaled = scaler.fit_transform(X_train)
+
+X_test_scaled = scaler.transform(X_test)
+
+# ==========================================
+# Create Models
+# ==========================================
+
+models = {
+
+    "Logistic Regression": LogisticRegression(
+        max_iter=1000
+    ),
+
+    "Decision Tree": DecisionTreeClassifier(
+        max_depth=5,
+        random_state=42
+    ),
+
+    "Random Forest": RandomForestClassifier(
+        n_estimators=200,
+        max_depth=10,
+        random_state=42
+    )
+}
+
+# ==========================================
+# Training & Evaluation
+# ==========================================
+
+results = []
+
+best_model = None
+best_accuracy = 0
+
+for name, model in models.items():
+
+    print("\n")
+    print("=" * 60)
+    print(name)
+    print("=" * 60)
+
+    # Logistic Regression uses scaled data
+
+    if name == "Logistic Regression":
+
+        model.fit(X_train_scaled, y_train)
+
+        y_pred = model.predict(X_test_scaled)
+
+    else:
+
+        model.fit(X_train, y_train)
+
+        y_pred = model.predict(X_test)
+
+    # Metrics
+
+    accuracy = accuracy_score(y_test, y_pred)
+
+    precision = precision_score(y_test, y_pred)
+
+    recall = recall_score(y_test, y_pred)
+
+    f1 = f1_score(y_test, y_pred)
+
+    # Store Results
+
+    results.append([
+        name,
+        accuracy,
+        precision,
+        recall,
+        f1
+    ])
+
+    # Best Model
+
+    if accuracy > best_accuracy:
+
+        best_accuracy = accuracy
+
+        best_model = model
+
+    # Print Metrics
+
+    print(f"Accuracy  : {accuracy:.4f}")
+    print(f"Precision : {precision:.4f}")
+    print(f"Recall    : {recall:.4f}")
+    print(f"F1 Score  : {f1:.4f}")
+
+    # Classification Report
+
+    print("\nClassification Report:\n")
+
+    print(classification_report(y_test, y_pred))
+
+    # Confusion Matrix
+
+    cm = confusion_matrix(y_test, y_pred)
+
+    print("\nConfusion Matrix:\n")
+
+    print(cm)
+
+    # Heatmap
+
+    plt.figure(figsize=(5,4))
+
+    sns.heatmap(
+        cm,
+        annot=True,
+        fmt="d",
+        cmap="Blues"
+    )
+
+    plt.title(f"Confusion Matrix - {name}")
+
+    plt.xlabel("Predicted")
+
+    plt.ylabel("Actual")
+
+    plt.show()
+
+# ==========================================
+# Comparison Table
+# ==========================================
+
+comparison_df = pd.DataFrame(
+
+    results,
+
+    columns=[
+        "Model",
+        "Accuracy",
+        "Precision",
+        "Recall",
+        "F1 Score"
+    ]
+)
+
+comparison_df = comparison_df.sort_values(
+    by="Accuracy",
+    ascending=False
+)
+
+print("\n")
+print("=" * 70)
+print("MODEL COMPARISON")
+print("=" * 70)
+
+print(comparison_df)
+
+# ==========================================
+# Best Model
+# ==========================================
+
+print("\nBest Model:")
+
+print(comparison_df.iloc[0])
+
+# ==========================================
+# Save Best Model
+# ==========================================
+
+import pickle
+
+pickle.dump(
+    best_model,
+    open("heart_disease_model.pkl", "wb")
+)
+
+pickle.dump(
+    scaler,
+    open("scaler.pkl", "wb")
+)
+
+print("\nModel Saved Successfully")
