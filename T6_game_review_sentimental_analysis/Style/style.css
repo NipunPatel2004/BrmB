@@ -1,0 +1,1302 @@
+/*
+   GAMING REVIEW SENTIMENT ANALYZER
+   PREMIUM DARK AI APPLICATION THEME
+ */
+
+
+/*
+   1. GLOBAL VARIABLES
+ */
+
+:root {
+    --bg-main: #070b14;
+    --bg-secondary: #0b1120;
+    --bg-card: #0f172a;
+    --bg-card-2: #111c31;
+    --bg-hover: #162238;
+
+    --border: #24314a;
+    --border-light: #2d3b58;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+
+    --purple: #7c3aed;
+    --purple-light: #8b5cf6;
+    --purple-dark: #5b21b6;
+
+    --blue: #3b82f6;
+    --blue-light: #60a5fa;
+
+    --cyan: #06b6d4;
+
+    --green: #22c55e;
+    --yellow: #f59e0b;
+    --red: #ef4444;
+
+    --shadow:
+        0 10px 35px rgba(0, 0, 0, 0.35);
+
+    --glow-purple:
+        0 0 25px rgba(124, 58, 237, 0.18);
+}
+
+
+/*
+   2. REMOVE STREAMLIT DEFAULT UI
+ */
+
+#MainMenu,
+[data-testid="stToolbar"],
+[data-testid="stDecoration"],
+[data-testid="stStatusWidget"],
+[data-testid="stHeader"],
+footer {
+    display: none !important;
+}
+
+
+/* Hide Streamlit branding */
+[data-testid="stAppViewContainer"]>header {
+    display: none !important;
+}
+
+
+/*
+   3. MAIN APPLICATION BACKGROUND
+ */
+
+.stApp {
+    background:
+        radial-gradient(circle at 10% 10%,
+            rgba(124, 58, 237, 0.10),
+            transparent 30%),
+        radial-gradient(circle at 90% 20%,
+            rgba(59, 130, 246, 0.08),
+            transparent 28%),
+        radial-gradient(circle at 50% 100%,
+            rgba(6, 182, 212, 0.05),
+            transparent 30%),
+        var(--bg-main) !important;
+
+    color: var(--text-primary) !important;
+
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+}
+
+
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"] {
+    background: transparent !important;
+}
+
+
+/*
+   4. MAIN CONTENT AREA
+ */
+
+.block-container {
+    max-width: 1450px !important;
+
+    padding-top: 2rem !important;
+    padding-bottom: 4rem !important;
+
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+
+/*
+   5. GLOBAL TEXT
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4 {
+    color: var(--text-primary) !important;
+
+    font-weight: 700 !important;
+
+    letter-spacing: -0.4px;
+}
+
+
+h1 {
+    font-size: 2.35rem !important;
+    line-height: 1.2 !important;
+}
+
+
+h2 {
+    font-size: 1.8rem !important;
+}
+
+
+h3 {
+    font-size: 1.25rem !important;
+}
+
+
+p,
+li,
+label,
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li {
+    color: var(--text-secondary) !important;
+
+    line-height: 1.7;
+}
+
+
+[data-testid="stCaptionContainer"] {
+    color: var(--text-muted) !important;
+}
+
+
+/*
+   6. PAGE TITLE
+ */
+
+[data-testid="stAppViewContainer"] h1:first-of-type {
+
+    color: #ffffff !important;
+
+    font-weight: 800 !important;
+
+    font-size: 2.3rem !important;
+
+    margin-bottom: 0.5rem !important;
+
+    background:
+        linear-gradient(135deg,
+            rgba(124, 58, 237, 0.18),
+            rgba(59, 130, 246, 0.10));
+
+    border-left: 4px solid var(--purple-light);
+
+    border-radius: 14px;
+
+    padding: 20px 24px;
+
+    box-shadow: var(--glow-purple);
+
+}
+
+
+/*
+   7. SECTION HEADINGS
+ */
+
+[data-testid="stMarkdownContainer"] h3 {
+
+    border-left: 3px solid var(--purple-light);
+
+    padding-left: 12px;
+
+    margin-top: 28px !important;
+}
+
+
+/*
+   8. DIVIDERS
+ */
+
+hr {
+
+    border: none !important;
+
+    border-top:
+        1px solid rgba(148, 163, 184, 0.15) !important;
+
+    margin: 30px 0 !important;
+}
+
+
+/*
+   9. HOME HERO
+ */
+
+.home-title {
+
+    text-align: center;
+
+    background:
+        radial-gradient(circle at top right,
+            rgba(59, 130, 246, 0.20),
+            transparent 35%),
+        linear-gradient(135deg,
+            #111827,
+            #0f172a 55%,
+            #16112d);
+
+    border:
+        1px solid rgba(124, 58, 237, 0.35);
+
+    border-radius: 22px;
+
+    padding: 55px 30px;
+
+    margin: 10px 0 32px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        0 0 40px rgba(124, 58, 237, 0.08);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.home-title::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    background:
+        rgba(124, 58, 237, 0.16);
+
+    filter: blur(70px);
+
+    top: -70px;
+    left: 10%;
+}
+
+
+.home-title h1 {
+
+    color: #ffffff !important;
+
+    font-size: 2.7rem !important;
+
+    font-weight: 800 !important;
+
+    margin: 0 0 10px !important;
+
+    position: relative;
+}
+
+
+.home-title p {
+
+    color: #a5b4fc !important;
+
+    font-size: 1.05rem;
+
+    margin: 0 !important;
+
+    position: relative;
+}
+
+
+/*
+   10. ABOUT CARD
+ */
+
+.about-card {
+
+    background:
+        linear-gradient(145deg,
+            rgba(17, 28, 49, 0.95),
+            rgba(15, 23, 42, 0.95));
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 28px 30px;
+
+    box-shadow: var(--shadow);
+
+    transition: all 0.25s ease;
+}
+
+
+.about-card:hover {
+
+    border-color:
+        rgba(124, 58, 237, 0.45);
+
+    box-shadow:
+        var(--shadow),
+        var(--glow-purple);
+
+    transform: translateY(-2px);
+}
+
+
+.about-card h3 {
+
+    color: #ffffff !important;
+
+    border: none !important;
+
+    padding: 0 !important;
+
+    margin-top: 0 !important;
+}
+
+
+.about-card p {
+
+    color: var(--text-secondary) !important;
+}
+
+
+.about-card strong {
+
+    color: #a78bfa !important;
+}
+
+
+/*
+   11. FEATURE CARDS
+ */
+
+.feature-card {
+
+    background:
+        linear-gradient(145deg,
+            rgba(17, 28, 49, 0.95),
+            rgba(11, 17, 32, 0.95));
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 28px 22px;
+
+    min-height: 190px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.30);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.feature-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(124, 58, 237, 0.55);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(124, 58, 237, 0.12);
+}
+
+
+.feature-card h3 {
+
+    color: #c4b5fd !important;
+
+    border: none !important;
+
+    padding: 0 !important;
+
+    margin-top: 5px !important;
+}
+
+
+.feature-card p {
+
+    color: var(--text-muted) !important;
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*
+   12. HOW IT WORKS
+ */
+
+.step-card {
+
+    background:
+        linear-gradient(145deg,
+            #111c31,
+            #0d1526);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 26px;
+
+    min-height: 290px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.30);
+
+    transition: all 0.25s ease;
+}
+
+
+.step-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(59, 130, 246, 0.45);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.40);
+}
+
+
+.step-number {
+
+    color: #8b5cf6 !important;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.step-card h3 {
+
+    color: #ffffff !important;
+
+    border: none !important;
+
+    padding-left: 0 !important;
+}
+
+
+.step-card p {
+
+    color: var(--text-muted) !important;
+}
+
+
+/*
+   13. EXPLORE CARDS
+ */
+
+.explore-card {
+
+    background:
+        linear-gradient(145deg,
+            rgba(15, 23, 42, 0.96),
+            rgba(17, 28, 49, 0.96));
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    min-height: 285px;
+
+    box-shadow: var(--shadow);
+
+    transition: all 0.25s ease;
+}
+
+
+.explore-card:hover {
+
+    border-color:
+        rgba(124, 58, 237, 0.45);
+
+    transform: translateY(-3px);
+}
+
+
+.explore-card h3 {
+
+    color: #a78bfa !important;
+
+    border: none !important;
+
+    padding-left: 0 !important;
+}
+
+
+.explore-card p,
+.explore-card li {
+
+    color: var(--text-secondary) !important;
+}
+
+
+.explore-card li {
+
+    margin-bottom: 8px;
+}
+
+
+/*
+   14. METRIC CARDS
+ */
+
+[data-testid="stMetric"] {
+
+    background:
+        linear-gradient(145deg,
+            rgba(17, 28, 49, 0.98),
+            rgba(15, 23, 42, 0.98)) !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius: 16px !important;
+
+    padding: 18px 20px !important;
+
+    min-height: 105px !important;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.28);
+
+    transition: all 0.25s ease;
+}
+
+
+[data-testid="stMetric"]:hover {
+
+    border-color:
+        rgba(124, 58, 237, 0.55) !important;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.40),
+        0 0 22px rgba(124, 58, 237, 0.10);
+}
+
+
+[data-testid="stMetricLabel"] {
+
+    color: var(--text-muted) !important;
+
+    font-weight: 600 !important;
+}
+
+
+[data-testid="stMetricValue"] {
+
+    color: #ffffff !important;
+
+    font-weight: 800 !important;
+}
+
+
+/*
+   15. BUTTONS
+ */
+
+.stButton>button {
+
+    background:
+        linear-gradient(135deg,
+            #7c3aed,
+            #5b21b6) !important;
+
+    color: #ffffff !important;
+
+    border:
+        1px solid rgba(139, 92, 246, 0.7) !important;
+
+    border-radius: 11px !important;
+
+    font-weight: 700 !important;
+
+    min-height: 44px !important;
+
+    padding: 10px 24px !important;
+
+    box-shadow:
+        0 7px 20px rgba(124, 58, 237, 0.25);
+
+    transition: all 0.2s ease;
+}
+
+
+.stButton>button:hover {
+
+    background:
+        linear-gradient(135deg,
+            #8b5cf6,
+            #6d28d9) !important;
+
+    border-color:
+        #a78bfa !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 28px rgba(124, 58, 237, 0.38);
+}
+
+
+.stButton>button:focus,
+.stButton>button:active {
+
+    color: white !important;
+
+    border-color: #a78bfa !important;
+
+    box-shadow:
+        0 0 0 2px rgba(124, 58, 237, 0.25) !important;
+}
+
+
+/*
+   16. TEXT AREA
+ */
+
+.stTextArea textarea {
+
+    background:
+        #0b1324 !important;
+
+    color:
+        #f8fafc !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius:
+        12px !important;
+
+    padding:
+        14px !important;
+
+    font-size:
+        0.98rem !important;
+
+    box-shadow:
+        inset 0 1px 2px rgba(0, 0, 0, 0.25) !important;
+}
+
+
+.stTextArea textarea:focus {
+
+    border-color:
+        #7c3aed !important;
+
+    box-shadow:
+        0 0 0 1px #7c3aed,
+        0 0 18px rgba(124, 58, 237, 0.12) !important;
+}
+
+
+.stTextArea textarea::placeholder {
+
+    color:
+        #64748b !important;
+}
+
+
+/*
+   17. TEXT INPUT
+ */
+
+.stTextInput input {
+
+    background:
+        #0b1324 !important;
+
+    color:
+        #f8fafc !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius:
+        11px !important;
+}
+
+
+.stTextInput input:focus {
+
+    border-color:
+        #7c3aed !important;
+
+    box-shadow:
+        0 0 0 1px #7c3aed !important;
+}
+
+
+/*
+   18. SELECT BOX
+ */
+
+div[data-baseweb="select"]>div {
+
+    background:
+        #0b1324 !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius:
+        11px !important;
+
+    color:
+        #f8fafc !important;
+}
+
+
+div[data-baseweb="select"]>div:hover {
+
+    border-color:
+        #7c3aed !important;
+}
+
+
+div[data-baseweb="select"] span {
+
+    color:
+        #f8fafc !important;
+}
+
+
+/* Dropdown menu */
+
+ul[data-baseweb="menu"] {
+
+    background:
+        #0f172a !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius:
+        10px !important;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.50) !important;
+}
+
+
+li[data-baseweb="menu-item-option"],
+li[role="option"] {
+
+    background:
+        #0f172a !important;
+
+    color:
+        #cbd5e1 !important;
+}
+
+
+li[data-baseweb="menu-item-option"]:hover,
+li[role="option"]:hover {
+
+    background:
+        #1e293b !important;
+
+    color:
+        #a78bfa !important;
+}
+
+
+/*
+   19. DATAFRAME / TABLE
+ */
+
+[data-testid="stDataFrame"] {
+
+    background:
+        #0f172a !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius:
+        14px !important;
+
+    overflow:
+        hidden !important;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.30);
+}
+
+
+[data-testid="stDataFrame"] div {
+
+    color:
+        #e2e8f0 !important;
+}
+
+
+[data-testid="stDataFrameResizable"] {
+
+    background:
+        #0f172a !important;
+}
+
+
+/*
+   20. EXPANDERS
+ */
+
+[data-testid="stExpander"] {
+
+    background:
+        linear-gradient(145deg,
+            #0f172a,
+            #0b1324) !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius:
+        14px !important;
+
+    box-shadow:
+        0 7px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+[data-testid="stExpander"] summary {
+
+    color:
+        #f8fafc !important;
+
+    font-weight:
+        700 !important;
+}
+
+
+[data-testid="stExpander"] summary:hover {
+
+    color:
+        #a78bfa !important;
+}
+
+
+/*
+   21. ALERTS
+   REMOVE STREAMLIT DEFAULT COLORS
+ */
+
+[data-testid="stAlert"] {
+
+    background:
+        #101827 !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-left:
+        4px solid #7c3aed !important;
+
+    border-radius:
+        12px !important;
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Success */
+
+[data-testid="stAlert"][kind="success"] {
+
+    border-left-color:
+        #22c55e !important;
+}
+
+
+/* Warning */
+
+[data-testid="stAlert"][kind="warning"] {
+
+    border-left-color:
+        #f59e0b !important;
+}
+
+
+/* Error */
+
+[data-testid="stAlert"][kind="error"] {
+
+    border-left-color:
+        #ef4444 !important;
+}
+
+
+/* Info */
+
+[data-testid="stAlert"][kind="info"] {
+
+    border-left-color:
+        #3b82f6 !important;
+}
+
+
+[data-testid="stAlert"] p {
+
+    color:
+        #cbd5e1 !important;
+}
+
+
+/*
+   22. PLOTLY CHART CONTAINER
+ */
+
+[data-testid="stPlotlyChart"] {
+
+    background:
+        #0f172a !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius:
+        15px !important;
+
+    padding:
+        7px !important;
+
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.30);
+}
+
+
+/*
+   23. IMAGES / WORD CLOUD
+ */
+
+[data-testid="stImage"] img {
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius:
+        14px !important;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.30);
+}
+
+
+/*
+   24. FILE UPLOADER
+ */
+
+[data-testid="stFileUploader"] {
+
+    background:
+        #0f172a !important;
+
+    border:
+        1px solid var(--border) !important;
+
+    border-radius:
+        14px !important;
+
+    padding:
+        10px !important;
+}
+
+
+[data-testid="stFileUploader"] section {
+
+    background:
+        #0b1324 !important;
+
+    border:
+        1px dashed #334155 !important;
+
+    border-radius:
+        12px !important;
+}
+
+
+[data-testid="stFileUploader"] button {
+
+    background:
+        #1e293b !important;
+
+    color:
+        #e2e8f0 !important;
+
+    border:
+        1px solid #334155 !important;
+
+    border-radius:
+        8px !important;
+}
+
+
+/*
+   25. SLIDER
+ */
+
+[data-testid="stSlider"] {
+
+    color:
+        #8b5cf6 !important;
+}
+
+
+[data-testid="stSlider"] [role="slider"] {
+
+    background:
+        #8b5cf6 !important;
+
+    border-color:
+        #8b5cf6 !important;
+}
+
+
+/*
+   26. CHECKBOX
+ */
+
+[data-testid="stCheckbox"] label {
+
+    color:
+        #cbd5e1 !important;
+}
+
+
+/*
+   27. RADIO BUTTON
+ */
+
+[data-testid="stRadio"] label {
+
+    color:
+        #cbd5e1 !important;
+}
+
+
+/*
+   28. CODE BLOCK
+ */
+
+[data-testid="stCodeBlock"] {
+
+    background:
+        #050914 !important;
+
+    border:
+        1px solid #1e293b !important;
+
+    border-radius:
+        12px !important;
+}
+
+
+/*
+   29. SPINNER
+ */
+
+[data-testid="stSpinner"] {
+
+    color:
+        #a78bfa !important;
+}
+
+
+/*
+   30. TOOLTIP
+ */
+
+[data-baseweb="tooltip"] {
+
+    background:
+        #111827 !important;
+
+    color:
+        #f8fafc !important;
+
+    border:
+        1px solid #334155 !important;
+}
+
+
+/*
+   31. SCROLLBAR
+ */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+    height: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        #070b14;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        #334155;
+
+    border-radius:
+        10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        #7c3aed;
+}
+
+
+/*
+   32. SELECTION
+ */
+
+::selection {
+
+    background:
+        rgba(124, 58, 237, 0.35);
+
+    color:
+        white;
+}
+
+
+/*
+   33. RESPONSIVE DESIGN
+ */
+
+@media (max-width: 768px) {
+
+    .block-container {
+
+        padding-left:
+            1rem !important;
+
+        padding-right:
+            1rem !important;
+    }
+
+
+    h1 {
+
+        font-size:
+            1.8rem !important;
+    }
+
+
+    [data-testid="stAppViewContainer"] h1:first-of-type {
+
+        font-size:
+            1.75rem !important;
+
+        padding:
+            17px 18px;
+    }
+
+
+    .home-title {
+
+        padding:
+            38px 18px;
+    }
+
+
+    .home-title h1 {
+
+        font-size:
+            2rem !important;
+    }
+
+
+    [data-testid="stMetric"] {
+
+        margin-bottom:
+            8px;
+    }
+
+}
+
+
+/*
+   34. SMALL POLISH
+ */
+
+.stMarkdown {
+
+    color:
+        var(--text-secondary);
+}
+
+
+.stCaption {
+
+    color:
+        var(--text-muted) !important;
+}
+
+
+/* Remove unnecessary Streamlit spacing */
+
+[data-testid="stVerticalBlock"] {
+
+    gap:
+        0.7rem;
+}
+
+
+.e1rw0b1u3 .st-emotion-cache-1permvm .stHorizontalBlock .work_class {
+    display: grid;
+    grid-column: auto auto auto;
+}
+
+
+    
+/* tabs */
+
+.stTabs [data-baseweb="tab-list"] {
+    justify-content: center;
+    gap: 50px;
+}
+
+/* tab text */
+
+.stTabs [data-baseweb="tab"] * {
+    font-size: 22px !important;
+    font-weight: 600 !important;
+}
+
