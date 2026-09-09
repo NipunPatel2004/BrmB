@@ -1,0 +1,182 @@
+/* =====================================================
+   GAMING REVIEW SENTIMENT ANALYZER - SIMPLE STYLES
+   This file colors the Streamlit app (Home, Data
+   Overview, Visualization, Prediction pages).
+   ===================================================== */
+
+/* ---------- PAGE BACKGROUND ---------- */
+
+.stApp {
+    background-color: #ced3d9;
+}
+
+/* Hide the sidebar because we use tabs for navigation */
+section[data-testid="stSidebar"] {
+    display: none;
+}
+
+/* Make all text dark and easy to read */
+* {
+    color: #676e80;
+}
+
+/* ---------- TABS (Home / Data Overview / Visualization / Prediction) ---------- */
+
+.stTabs [data-baseweb="tab-list"] {
+    background-color: #f1f5f9;
+    padding: 6px;
+    border-radius: 8px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    height: 44px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.stTabs [aria-selected="true"] {
+    background-color: #7dd3fc;
+}
+
+/* ---------- METRICS (st.metric) ---------- */
+
+[data-testid="stMetric"] {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #0ea5e9;
+    border-radius: 8px;
+    padding: 14px;
+}
+
+/* ---------- BUTTONS ---------- */
+
+.stButton > button {
+    background-color: #7dd3fc;
+    border: 1px solid #0ea5e9;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 8px 20px;
+}
+
+.stButton > button:hover {
+    background-color: #0ea5e9;
+    
+}
+
+/* ---------- TEXT INPUTS ---------- */
+
+.stTextArea textarea,
+.stTextInput input {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    color: #000000;
+}
+
+/* ---------- DATA TABLES ---------- */
+
+[data-testid="stDataFrame"] {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+[data-testid="stDataFrame"] thead tr th {
+    background-color: #e0f2fe;
+    font-weight: 700;
+}
+
+/* ---------- EXPANDERS ---------- */
+
+[data-testid="stExpander"] {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+/* ---------- CHARTS AND IMAGES ---------- */
+
+[data-testid="stPlotlyChart"] {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+[data-testid="stImage"] img {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+
+/* =====================================================
+   HOME PAGE
+   ===================================================== */
+
+/* Header box at top of home page */
+.home-title {
+    text-align: center;
+    background-color: #7dd3fc;
+    border: 1px solid #0ea5e9;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.home-title h1 {
+    font-size: 38px;
+    margin-bottom: 5px;
+}
+
+.home-title p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* About box */
+.about-card {
+    background-color: #e0f2fe;
+    border-left: 5px solid #0ea5e9;
+    border-radius: 8px;
+    padding: 20px;
+    line-height: 1.7;
+}
+
+/* Feature cards */
+.feature-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 22px;
+    min-height: 190px;
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 30px;
+}
+
+/* How it works step cards */
+.step-card {
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 170px;
+}
+
+.step-number {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+/* Explore cards */
+.explore-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 22px;
+    min-height: 230px;
+}
+
+.explore-card li {
+    margin-bottom: 7px;
+}
