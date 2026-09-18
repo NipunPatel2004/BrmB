@@ -1,0 +1,281 @@
+:root {
+    
+    --color-orange: #FF7A30;         /* main brand / title background */
+    --color-orange-dark: #E8621F;    /* hover / darker accent */
+    --color-orange-light: #FFE4D1;   /* soft orange tint for highlights */
+
+    --color-gray-bg: #F2F3F5;        /* overall page background (light gray) */
+    --color-gray-card: #FFFFFF;      /* card / box background */
+    --color-gray-border: #E0E2E6;    /* borders / dividers */
+    --color-gray-text: #3B3B3B;      /* normal text */
+    --color-gray-muted: #7A7A7A;     /* secondary / muted text */
+
+    --color-white: #FFFFFF;
+    --color-positive: #2E8B57;       /* green for positive sentiment */
+    --color-negative: #D64545;       /* red for negative sentiment */
+
+    --radius: 10px;
+}
+
+/*
+   2. PAGE BACKGROUND  (light gray theme for every page)
+   */
+.stApp {
+    background-color: var(--color-gray-bg);
+}
+
+/* Main content column gets a little breathing room */
+.block-container {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+/* Default body text color */
+.stApp, .stMarkdown, p, span, label {
+    color: var(--color-gray-text);
+}
+
+
+/* Top header bar (hamburger menu / Deploy button strip). Some browsers
+   default this to a dark theme - force it to match the light page. */
+header[data-testid="stHeader"] {
+    background-color: var(--color-gray-bg);
+}
+
+header[data-testid="stHeader"] svg {
+    fill: var(--color-gray-text) !important;
+}
+
+div[data-testid="stToolbar"] button,
+div[data-testid="stToolbar"] span {
+    color: var(--color-gray-text) !important;
+}
+
+
+/*
+   3. SIDEBAR
+   */
+section[data-testid="stSidebar"] {
+    background-color: var(--color-gray-card);
+    border-right: 1px solid var(--color-gray-border);
+}
+
+section[data-testid="stSidebar"] * {
+    color: var(--color-gray-text);
+}
+
+
+/*
+   4. TITLES / HEADERS
+   */
+.page-title {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    padding: 18px 24px;
+    border-radius: var(--radius);
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.page-subtitle {
+    color: var(--color-gray-muted);
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+/* Section headers used inside a page (e.g. "Dataset Summary") */
+.section-title {
+    color: var(--color-gray-text);
+    font-size: 20px;
+    font-weight: 600;
+    border-left: 5px solid var(--color-orange);
+    padding-left: 12px;
+    margin: 22px 0 12px 0;
+    background-color: rgb(229, 193, 193);
+}
+
+/*
+   5. CARDS / BOXES  (generic light-gray content containers)
+   */
+.app-card {
+    background-color: var(--color-gray-card);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 16px;
+}
+
+
+/*
+   6. STREAMLIT NATIVE WIDGETS
+   */
+
+/* Buttons */
+.stButton > button, .stDownloadButton > button {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    padding: 8px 18px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.stButton > button:hover, .stDownloadButton > button:hover {
+    background-color: var(--color-orange-dark);
+    color: var(--color-white);
+}
+
+/* Metrics (st.metric) */
+div[data-testid="stMetric"] {
+    background-color: var(--color-gray-card);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius);
+    padding: 14px 10px;
+    text-align: center;
+}
+
+div[data-testid="stMetricValue"] {
+    color: var(--color-orange-dark);
+}
+
+/* Dividers */
+hr {
+    border-color: var(--color-gray-border) !important;
+}
+
+/* Dataframes / tables */
+div[data-testid="stDataFrame"] {
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+/* Expander headers (used in EDA page) */
+details {
+    background-color: var(--color-gray-card);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+}
+
+/* Progress bar accent */
+div[data-testid="stProgress"] div[role="progressbar"] > div {
+    background-color: var(--color-orange);
+}
+
+/* Info / success / warning / error boxes -> tinted to match theme */
+div[data-testid="stAlertContainer"] {
+    border-radius: var(--radius);
+}
+
+/* Text inputs & text areas (e.g. "Enter Review") */
+.stTextInput input,
+.stTextArea textarea,
+.stNumberInput input {
+    background-color: var(--color-white) !important;
+    color: var(--color-gray-text) !important;
+    border: 1px solid var(--color-gray-border) !important;
+    border-radius: var(--radius) !important;
+}
+
+.stTextInput input::placeholder,
+.stTextArea textarea::placeholder {
+    color: var(--color-gray-muted) !important;
+}
+
+/* Selectbox / multiselect (e.g. "Select Restaurant" dropdown) */
+div[data-baseweb="select"] > div {
+    background-color: var(--color-white) !important;
+    color: var(--color-gray-text) !important;
+    border: 1px solid var(--color-gray-border) !important;
+    border-radius: var(--radius) !important;
+}
+
+div[data-baseweb="select"] svg {
+    fill: var(--color-gray-text) !important;
+}
+
+/* Dropdown / listbox menu that opens below the select */
+div[data-baseweb="popover"] ul,
+div[data-baseweb="popover"] li {
+    background-color: var(--color-white) !important;
+    color: var(--color-gray-text) !important;
+}
+
+div[data-baseweb="popover"] li:hover {
+    background-color: var(--color-orange-light) !important;
+}
+
+/* Slider, file uploader box */
+div[data-testid="stFileUploaderDropzone"] {
+    background-color: var(--color-white) !important;
+    border: 1px dashed var(--color-gray-border) !important;
+    border-radius: var(--radius) !important;
+}
+
+/* Plotly chart wrapper - light card background behind every chart */
+div[data-testid="stPlotlyChart"] {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--radius);
+    padding: 8px;
+}
+
+/* Equal-height columns (e.g. the 3-card "System Overview" row).
+   Streamlit sizes each column to its own content by default, which
+   makes cards with more text taller than the others. This stretches
+   every column/card in a row to match the tallest one. */
+div[data-testid="stHorizontalBlock"] {
+    align-items: stretch;
+}
+
+div[data-testid="stHorizontalBlock"] > div[data-testid="column"] {
+    display: flex;
+}
+
+div[data-testid="column"] > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+div[data-testid="column"] div[data-testid="stVerticalBlock"] {
+    height: 100%;
+}
+
+div[data-testid="column"] div[data-testid="stAlertContainer"] {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.badge-positive {
+    background-color: var(--color-positive);
+    color: var(--color-white);
+}
+
+.badge-negative {
+    background-color: var(--color-negative);
+    color: var(--color-white);
+}
+
+
+/*
+   8. FOOTER / CAPTION
+   */
+.app-footer {
+    text-align: center;
+    color: var(--color-gray-muted);
+    font-size: 13px;
+    margin-top: 24px;
+}
