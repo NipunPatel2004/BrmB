@@ -10,14 +10,14 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
-from Utils.css_loader import load_css
-from Utils.model_loader import load_models
+from utils.css_loader import load_css
+from utils.model_loader import load_models
 
 
 
 # file path for the dataset
 
-DATA_PATH = "balanced_game_reviews_80k.csv"
+DATA_PATH = "data/balanced_game_reviews_80k.csv"
 
 # preprocessing function for the review text
 
