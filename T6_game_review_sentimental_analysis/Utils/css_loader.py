@@ -5,7 +5,7 @@ from pathlib import Path
 
 def load_css():
 
-    css_file = Path(__file__).parent.parent / "Style" / "style.css"
+    css_file = Path(__file__).parent.parent / "styles" / "style.css"
 
     with open(css_file, "r", encoding="utf-8") as file:
         css = file.read()
