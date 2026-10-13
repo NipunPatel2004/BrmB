@@ -2,9 +2,12 @@ import pickle
 import os
 
 
+from pathlib import Path
+
+
 def load_models():
 
-    base_path = "Models"
+    base_path = Path(__file__).parent.parent / "models"
 
 
     # TF-IDF
