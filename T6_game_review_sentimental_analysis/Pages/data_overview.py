@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-from Utils.css_loader import load_css
+from utils.css_loader import load_css
 
 
 def data_overview_page():
@@ -10,7 +10,7 @@ def data_overview_page():
     load_css()
 
     # load Dataset
-    df = pd.read_csv("Data/balanced_game_reviews_80k.csv")
+    df = pd.read_csv("data/balanced_game_reviews_80k.csv")
 
     # Header
     st.title("Data Overview")
