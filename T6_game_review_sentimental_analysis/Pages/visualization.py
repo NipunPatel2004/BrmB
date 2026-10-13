@@ -25,7 +25,7 @@ from collections import Counter
 import plotly.express as px
 from sklearn.feature_extraction.text import CountVectorizer
 from wordcloud import WordCloud
-from Utils.css_loader import load_css
+from utils.css_loader import load_css
 
 # Helper functions
 
@@ -97,7 +97,7 @@ def create_wordcloud(text_series):
 def visualization_page():
 
     load_css()
-    df = pd.read_csv("Data/balanced_game_reviews_80k.csv")
+    df = pd.read_csv("data/balanced_game_reviews_80k.csv")
 
     #header
     st.title("Visualization & Exploratory Data Analysis")
